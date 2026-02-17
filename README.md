@@ -1,4 +1,21 @@
-# Playwright Cucumber API & UI Test Automation Framework (Java)
+## Playwright Cucumber Backend (API) & UI Test Automation Framework (Java)
+
+This project is a professional end-to-end Test Automation Framework built with Java, Playwright, Cucumber, and JUnit 5. It provides full coverage for both backend (API) testing and frontend (UI) testing within a unified and scalable architecture.
+
+## The framework supports:
+
+- UI automation using Playwright (browser-based testing)
+- Backend API testing using Playwright APIRequestContext
+- Hybrid test scenarios (API setup + UI validation)
+- Contract testing using JSON Schema validation
+- Token-based authentication (API-driven login for UI tests)
+- Shared test context between backend and UI layers
+- Tag-based execution (@ui, @api)
+- GitHub Actions CI integration
+
+The architecture follows clean code principles and design patterns such as Page Object Model (POM) and layered test separation. Backend tests validate business logic and API contracts, while UI tests ensure correct user interactions and frontend behavior.
+
+This project demonstrates advanced automation strategies suitable for enterprise-level applications, combining backend verification, frontend validation, and CI/CD integration into a single maintainable framework.
 
 ## Overview
 
@@ -11,16 +28,6 @@ This project is a full-stack Test Automation Framework built with:
 - Maven
 - JSON Schema Validation (Contract Testing)
 - GitHub Actions (CI-ready)
-
-The framework supports:
-
-- UI Automation
-- API Automation
-- Contract Testing (JSON Schema)
-- Hybrid UI + API tests
-- Shared Test Context
-- Token-based authentication
-- CI/CD integration
 
 ### Key Design Patterns
 
