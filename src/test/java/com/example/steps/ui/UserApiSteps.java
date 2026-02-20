@@ -30,7 +30,7 @@ public class UserApiSteps {
         this.context = context;
     }
 
-    @When("user sends GET request to {String}")
+    @When("user sends GET request to {string}")
     public void user_sends_get_request(String endpoint) {
         response = ApiHooks.apiRequestContext.get(endpoint);
 
@@ -88,7 +88,7 @@ public class UserApiSteps {
                 .isEmpty();
     }
 
-    @When("user a creates a new user via API")
+    @When("user creates a new user via API")
     public void user_creates_user() throws Exception {
 
         String body = """
@@ -153,7 +153,5 @@ public class UserApiSteps {
 
         Hooks.page.reload();
     }
-
-
 
 }

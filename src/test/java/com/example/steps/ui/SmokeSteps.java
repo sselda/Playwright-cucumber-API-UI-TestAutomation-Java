@@ -10,7 +10,6 @@ public class SmokeSteps {
 
     HomePage homePage;
 
-
     @Given("user opens the homepage")
     public void user_opens_the_homepage() {
         homePage = new HomePage(Hooks.page);
