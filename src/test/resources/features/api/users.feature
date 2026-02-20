@@ -2,7 +2,7 @@
 Feature:Users API
 
 Scenario: Get list of users
-    When user sends GET request to "/users?page=2"
+    When user sends "GET" request to "/users?page=2"
     Then response status should be 200
     And response should contain field "data"
     And first user email should be "micheal.lawson@reqres.in"

@@ -1,4 +1,4 @@
-package com.example.steps.ui;
+package com.example.steps.api;
 
 import com.example.hooks.ApiHooks;
 import com.example.hooks.Hooks;
@@ -28,19 +28,6 @@ public class UserApiSteps {
 
     public UserApiSteps(TextContext context) {
         this.context = context;
-    }
-
-    @When("user sends GET request to {string}")
-    public void user_sends_get_request(String endpoint) {
-        response = ApiHooks.apiRequestContext.get(endpoint);
-
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            responseBody = mapper.readTree(response.text());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     @Then("response status should be {int}")
