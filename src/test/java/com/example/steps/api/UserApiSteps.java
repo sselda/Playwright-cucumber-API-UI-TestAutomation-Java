@@ -18,6 +18,8 @@ import io.cucumber.java.en.When;
 import java.io.InputStream;
 import java.util.Set;
 
+import static com.networknt.schema.SpecVersion.VersionFlag.V7;
+import static com.networknt.schema.SpecVersion.VersionFlag.valueOf;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class UserApiSteps {
@@ -36,31 +38,30 @@ public class UserApiSteps {
     }
 
     @Then("response should contain field {string}")
-    public void response_should_be_contain(String fieldName) {
+    public void response_should_contain_field(String fieldName) {
         assertThat(responseBody.has(fieldName))
-                .as("Response should contain field: " + fieldName)
+                .as("response should contain field: " + fieldName)
                 .isTrue();
     }
 
     @Then("first user email should be {string}")
-    public void first_user_email_should_be(String expectedEmail) {
+    public void first_user_email_should(String expectedMail) {
         String actualMail = responseBody
                 .get("data")
                 .get(0)
                 .get("email")
                 .asText();
-
         assertThat(actualMail)
                 .as("Email should match")
-                .isEqualTo(expectedEmail);
+                .isEqualTo(expectedMail);
     }
 
     @Then("response should match schema {string}")
     public void response_should_match_schema(String schemaFile) throws Exception {
 
         InputStream schemaStream =
-                getClass().getClassLoader()
-                        .getResourceAsStream("schemas/"+ schemaFile);
+                 getClass().getClassLoader()
+                .getResourceAsStream("/schemas" + schemaFile);
 
         JsonSchemaFactory factory =
                 JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V7);
@@ -71,9 +72,10 @@ public class UserApiSteps {
                 schema.validate(responseBody);
 
         assertThat(errors)
-                .as("Schema validation errors: " + errors)
+                .as("schema validation errors: " + errors)
                 .isEmpty();
     }
+
 
     @When("user creates a new user via API")
     public void user_creates_user() throws Exception {
